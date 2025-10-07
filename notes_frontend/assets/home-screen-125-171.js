@@ -3,39 +3,47 @@
 
   // PUBLIC_INTERFACE
   function initHomeScreenInteractions() {
-    /** Initialize click handlers for interactive elements defined in the Figma JSON.
-     *  - Search background button (no-op, highlight demo)
-     *  - Info background button (no-op, highlight demo)
-     *  - Add FAB (shows a basic action)
+    /** Initialize click handlers for interactive elements derived from Figma JSON.
+     * Elements:
+     *  - Search background button
+     *  - Info background button
+     *  - Add FAB
+     * Behavior: Provide visual feedback (ripple-like outline) and log actions.
+     * Accessibility: Buttons already have aria-labels; keyboard focus styles via CSS.
      */
     var btnSearch = document.getElementById('btn-search-bg');
     var btnInfo = document.getElementById('btn-info-bg');
     var btnAdd = document.getElementById('btn-add');
 
-    function ripple(el) {
+    function pulseOutline(el, color) {
       if (!el) return;
-      el.style.transition = 'box-shadow .2s ease';
-      var prev = el.style.boxShadow;
-      el.style.boxShadow = '0 0 0 4px rgba(37,99,235,0.20)';
+      var prevOutline = el.style.outline;
+      var prevOffset = el.style.outlineOffset;
+      el.style.outline = '2px solid ' + (color || 'rgba(37,99,235,0.6)');
+      el.style.outlineOffset = '2px';
       setTimeout(function () {
-        el.style.boxShadow = prev || '';
+        el.style.outline = prevOutline || '';
+        el.style.outlineOffset = prevOffset || '';
       }, 180);
     }
 
     if (btnSearch) {
       btnSearch.addEventListener('click', function () {
-        ripple(btnSearch);
+        pulseOutline(btnSearch);
+        // eslint-disable-next-line no-console
+        console.log('Search clicked');
       });
     }
     if (btnInfo) {
       btnInfo.addEventListener('click', function () {
-        ripple(btnInfo);
+        pulseOutline(btnInfo, 'rgba(245,158,11,0.6)');
+        // eslint-disable-next-line no-console
+        console.log('Info clicked');
       });
     }
     if (btnAdd) {
       btnAdd.addEventListener('click', function () {
-        ripple(btnAdd);
-        // Example action: announce addition (placeholder for future integration)
+        pulseOutline(btnAdd);
         // eslint-disable-next-line no-console
         console.log('Add action triggered');
       });
@@ -49,7 +57,6 @@
     initHomeScreenInteractions();
   }
 
-  // Expose for potential tests
   // PUBLIC_INTERFACE
   window.__initHomeScreenInteractions = initHomeScreenInteractions;
 })();

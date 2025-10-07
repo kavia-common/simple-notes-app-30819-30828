@@ -80,20 +80,20 @@ body.ocean-theme {
   box-shadow: var(--shadow-md);
 }
 
-/* Different background accents per card if needed */
-.card-rect8 { /* Rectangle 8 - primary subtle accent border */
+/* Card accent borders based on Ocean Professional hints */
+.card-rect8 {
   border: 1px solid rgba(37, 99, 235, 0.15);
 }
-.card-rect11 { /* Rectangle 11 - amber accent */
+.card-rect11 {
   border: 1px solid rgba(245, 158, 11, 0.16);
 }
-.card-rect10 { /* Rectangle 10 - neutral */
+.card-rect10 {
   border: 1px solid rgba(17, 24, 39, 0.08);
 }
-.card-rect13 { /* Rectangle 13 - neutral */
+.card-rect13 {
   border: 1px solid rgba(17, 24, 39, 0.08);
 }
-.card-rect9 { /* Rectangle 9 - neutral */
+.card-rect9 {
   border: 1px solid rgba(17, 24, 39, 0.08);
 }
 
@@ -114,6 +114,7 @@ body.ocean-theme {
   border: none;
   cursor: pointer;
   transition: transform .2s ease, box-shadow .2s ease;
+  background: var(--ocean-surface);
 }
 
 .surface {
@@ -174,4 +175,15 @@ body.ocean-theme {
 .fab-button:focus-visible {
   outline: 2px solid var(--ocean-primary);
   outline-offset: 2px;
+}
+
+/* Responsive Behavior:
+   Maintain 414px design width centered; allow page zoom on smaller screens while preserving layout. */
+@media (max-width: 430px) {
+  #root-frame {
+    transform-origin: top center;
+    /* Scale down if viewport is smaller; ensures pixel-accurate proportions */
+    transform: scale(calc((100vw) / 414));
+    height: calc(1100px * (414 / 100vw)); /* prevent overflow during scale */
+  }
 }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Screen (125:171)</title>
+  <!-- Preload referenced images exactly as per JSON -->
   <link rel="preload" as="image" href="/assets/figmaimages/figma_image_125_187.png">
   <link rel="preload" as="image" href="/assets/figmaimages/figma_image_125_188_8_9.png">
   <link rel="preload" as="image" href="/assets/figmaimages/figma_image_125_190_8_12.png">
@@ -16,56 +17,57 @@
     <!-- Hero Title: "Notes" -->
     <h1 class="hero-text" style="left:24px; top:24px;">Notes</h1>
 
-    <!-- Top Right Buttons container aligns exactly per JSON positions -->
-    <!-- Button 4 (Search background) -->
-    <button class="icon-button surface shadow" id="btn-search-bg" style="left:268px; top:28px;" aria-label="Search button background" tabindex="-1"></button>
-    <!-- Search Icon inside Button 4 -->
+    <!-- Top Right Buttons -->
+    <!-- Button 4 (Search background rectangle) -->
+    <button class="icon-button surface shadow" id="btn-search-bg" style="left:268px; top:28px;" aria-label="Search button"></button>
+    <!-- Search Icon (24x24) -->
     <img class="icon-img" id="icon-search" alt="search icon"
          src="/assets/figmaimages/figma_image_125_190_8_12.png"
          style="left:281px; top:41px; width:24px; height:24px;" />
 
     <!-- Button 1 (Info background with image) -->
-    <button class="icon-button surface shadow" id="btn-info-bg" style="left:339px; top:28px;" aria-label="Info button background" tabindex="-1"></button>
-    <!-- Button 1 has a background image (rectangle with icon baked) -->
-    <img class="icon-img" id="icon-info-bg" alt="info background"
+    <button class="icon-button surface shadow" id="btn-info-bg" style="left:339px; top:28px;" aria-label="Info button"></button>
+    <!-- Button 1 has a background image (exact path from JSON) -->
+    <img class="icon-img" id="icon-info-bg" alt="info rectangle background"
          src="/assets/figmaimages/figma_image_125_187.png"
          style="left:339px; top:28px; width:50px; height:50px;" />
-    <!-- Info Outline vector overlay (matches 24x24 area) -->
+    <!-- Info Outline icon (24x24) -->
     <img class="icon-img" id="icon-info"
          alt="info outline icon"
          src="/assets/figmaimages/figma_image_125_188_8_9.png"
          style="left:352px; top:41px; width:24px; height:24px;" />
 
-    <!-- Card 1: Rectangle 8 with text -->
-    <div class="card card-rect8" style="left:24px; top:146px; width:365px; height:157px;"></div>
+    <!-- Cards based on rectangles and text positions from JSON -->
+    <!-- Rectangle 8 -->
+    <div class="card card-rect8" style="left:24px; top:146px; width:365px; height:157px;" role="region" aria-label="Book review card"></div>
     <p class="card-text"
        style="left:69px; top:171px; width:270px; height:103px;">
       Book Review : The Design of Everyday Things by Don Norman
     </p>
 
-    <!-- Card 2: Rectangle 11 with text -->
-    <div class="card card-rect11" style="left:24px; top:326px; width:365px; height:123px;"></div>
+    <!-- Rectangle 11 -->
+    <div class="card card-rect11" style="left:24px; top:326px; width:365px; height:123px;" role="region" aria-label="Anime list card"></div>
     <p class="card-text"
        style="left:69px; top:355px; width:254px; height:64px;">
       Animes produced by Ufotable
     </p>
 
-    <!-- Card 3: Rectangle 10 with text -->
-    <div class="card card-rect10" style="left:24px; top:474px; width:365px; height:110px;"></div>
+    <!-- Rectangle 10 -->
+    <div class="card card-rect10" style="left:24px; top:474px; width:365px; height:110px;" role="region" aria-label="Manga plan card"></div>
     <p class="card-text"
        style="left:69px; top:497px; width:259px; height:67px;">
       Mangas planned to read
     </p>
 
-    <!-- Card 4: Rectangle 13 with text -->
-    <div class="card card-rect13" style="left:24px; top:609px; width:365px; height:120px;"></div>
+    <!-- Rectangle 13 -->
+    <div class="card card-rect13" style="left:24px; top:609px; width:365px; height:120px;" role="region" aria-label="Tweets collection card"></div>
     <p class="card-text"
        style="left:69px; top:635px; width:287px; height:68px;">
       Awesome tweets collection
     </p>
 
-    <!-- Card 5: Rectangle 9 with text -->
-    <div class="card card-rect9" style="left:24px; top:754px; width:365px; height:100px;"></div>
+    <!-- Rectangle 9 -->
+    <div class="card card-rect9" style="left:24px; top:754px; width:365px; height:100px;" role="region" aria-label="FOSS apps list card"></div>
     <p class="card-text"
        style="left:69px; top:771px; width:297px; height:66px;">
       List of free &amp; open source apps
